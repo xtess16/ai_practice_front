@@ -1,14 +1,10 @@
 import { createStore } from 'vuex'
+import backend from "@/store/backend";
+import profile from "@/store/profile"
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    backend: backend,
+    profile: profile
   }
 })
