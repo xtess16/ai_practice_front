@@ -64,13 +64,13 @@ export default {
     text-align: center;
 }
 .title {
-    font-size: 30pt;
+    font-size: 22pt;
 }
 .content__wrapper {
-    margin: 0 100px;
-    text-indent: 20px;
+    margin: 0 150px;
+    text-indent: 50px;
 }
 .content__wrapper >>> * {
-    font-size: 20pt;
+    font-size: 18pt;
 }
 </style>
