@@ -70,7 +70,7 @@ export default {
     margin: 0 150px;
     text-indent: 50px;
 }
-.content__wrapper >>> * {
+.content__wrapper:deep(*) {
     font-size: 18pt;
 }
 </style>

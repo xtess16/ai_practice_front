@@ -73,8 +73,8 @@ export default {
 .title__text {
     font-size: 28pt;
 }
-span >>> * {
+span:deep(*) {
     text-align: center;
-    font-size: 20pt;
+    font-size: 18pt;
 }
 </style>
