@@ -12,6 +12,8 @@
 
 import axios from "axios";
 import {mapGetters, mapState} from "vuex";
+import {ElLoading} from "element-plus";
+import router from "@/router";
 
 export default {
     data() {
@@ -23,10 +25,19 @@ export default {
         }
     },
     mounted() {
+        if (!this.token) {
+            router.push({ path: '/signin' })
+            return
+        }
         this.getArticleDetail()
     },
     methods: {
         async getArticleDetail() {
+            let loading = ElLoading.service({
+                lock: true,
+                text: 'Загрузка статьи',
+                background: 'rgba(0, 0, 0, 0)',
+            })
             try {
                 let response = await axios.get(this.backendAPIURL + '/wagtail/pages/', {
                     params: {
@@ -44,6 +55,7 @@ export default {
             } catch (e) {
                 console.log(e)
             }
+            loading.close()
         }
 
     },
@@ -71,6 +83,7 @@ export default {
     text-indent: 50px;
 }
 .content__wrapper:deep(*) {
-    font-size: 18pt;
+    font-size: 17pt;
+    margin-top: 10px;
 }
 </style>

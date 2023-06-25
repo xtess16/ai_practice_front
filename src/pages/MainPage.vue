@@ -58,6 +58,7 @@ export default {
     mounted() {
         if (!this.token) {
             router.push({path: '/signin'})
+            return
         }
         this.updateHealthy()
         this.getPage()

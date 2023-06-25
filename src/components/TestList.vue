@@ -1,6 +1,6 @@
 <template>
     <div v-if="tests.length === 0">
-        <el-empty description="Список статей пуст" />
+        <el-empty description="Список тестов пуст" />
     </div>
     <el-row v-for="test in tests" :key="test.id" style="justify-content: center; margin-bottom: 20px">
         <el-col span="8">
@@ -14,9 +14,6 @@ import OptionsTestItem from "@/components/OptionsTestItem.vue";
 
 export default {
     components: {OptionsTestItem},
-    data() {
-
-    },
     props: {
         tests: {
             type: Array,

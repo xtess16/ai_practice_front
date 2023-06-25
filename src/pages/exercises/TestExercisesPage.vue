@@ -14,6 +14,7 @@ import axios from "axios";
 import {mapGetters, mapState} from "vuex";
 import TestList from "@/components/TestList.vue";
 import router from "@/router";
+import {ElLoading} from "element-plus";
 
 export default {
     components: {TestList},
@@ -25,6 +26,11 @@ export default {
     },
     methods: {
         async getTests() {
+            let loading = ElLoading.service({
+                lock: true,
+                text: 'Загрузка тестов',
+                background: 'rgba(0, 0, 0, 0)',
+            })
             try {
                 let response = await axios.get(
                     this.backendAPIURL + '/wagtail/pages/',
@@ -42,6 +48,7 @@ export default {
             } catch (e) {
                 console.log(e)
             }
+            loading.close()
         },
     },
     computed: {
@@ -55,6 +62,7 @@ export default {
     mounted() {
         if (!this.token) {
             router.push({ path: '/signin' })
+            return
         }
         this.getTests()
     }
